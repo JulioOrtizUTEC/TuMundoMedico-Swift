@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3464ACFE2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464ACFD2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift */; };
+		3464AD002AE0BB6000413486 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464ACFF2AE0BB6000413486 /* ContentView.swift */; };
+		3464AD022AE0BB6200413486 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3464AD012AE0BB6200413486 /* Assets.xcassets */; };
+		3464AD052AE0BB6200413486 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3464AD042AE0BB6200413486 /* Preview Assets.xcassets */; };
+		3464AD0F2AE0BB6200413486 /* TuMundoMedico_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD0E2AE0BB6200413486 /* TuMundoMedico_SwiftTests.swift */; };
+		3464AD192AE0BB6200413486 /* TuMundoMedico_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD182AE0BB6200413486 /* TuMundoMedico_SwiftUITests.swift */; };
+		3464AD1B2AE0BB6200413486 /* TuMundoMedico_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD1A2AE0BB6200413486 /* TuMundoMedico_SwiftUITestsLaunchTests.swift */; };
+		3464AD282AE0D1C100413486 /* registrarUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD272AE0D1C100413486 /* registrarUsuario.swift */; };
+		3464AD2A2AE1FC0600413486 /* recuContraVerificar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD292AE1FC0600413486 /* recuContraVerificar.swift */; };
+		3464AD2C2AE20DE000413486 /* recuContra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD2B2AE20DE000413486 /* recuContra.swift */; };
+		3464AD2E2AE214EE00413486 /* Inicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD2D2AE214EE00413486 /* Inicio.swift */; };
+		3464AD302AE221DF00413486 /* Medicos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD2F2AE221DF00413486 /* Medicos.swift */; };
+		3464AD332AE228D000413486 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3464AD352AE228D000413486 /* Launch Screen.storyboard */; };
+		3464AD372AE3627700413486 /* Perfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD362AE3627700413486 /* Perfil.swift */; };
+		3464AD392AE3769100413486 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD382AE3769100413486 /* SideMenu.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3464AD0B2AE0BB6200413486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3464ACF22AE0BB6000413486 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3464ACF92AE0BB6000413486;
+			remoteInfo = "TuMundoMedico-Swift";
+		};
+		3464AD152AE0BB6200413486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3464ACF22AE0BB6000413486 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3464ACF92AE0BB6000413486;
+			remoteInfo = "TuMundoMedico-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3464ACFA2AE0BB6000413486 /* TuMundoMedico-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TuMundoMedico-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3464ACFD2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuMundoMedico_SwiftApp.swift; sourceTree = "<group>"; };
+		3464ACFF2AE0BB6000413486 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3464AD012AE0BB6200413486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3464AD042AE0BB6200413486 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3464AD0A2AE0BB6200413486 /* TuMundoMedico-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TuMundoMedico-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3464AD0E2AE0BB6200413486 /* TuMundoMedico_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuMundoMedico_SwiftTests.swift; sourceTree = "<group>"; };
+		3464AD142AE0BB6200413486 /* TuMundoMedico-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TuMundoMedico-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3464AD182AE0BB6200413486 /* TuMundoMedico_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuMundoMedico_SwiftUITests.swift; sourceTree = "<group>"; };
+		3464AD1A2AE0BB6200413486 /* TuMundoMedico_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuMundoMedico_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3464AD272AE0D1C100413486 /* registrarUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registrarUsuario.swift; sourceTree = "<group>"; };
+		3464AD292AE1FC0600413486 /* recuContraVerificar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recuContraVerificar.swift; sourceTree = "<group>"; };
+		3464AD2B2AE20DE000413486 /* recuContra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recuContra.swift; sourceTree = "<group>"; };
+		3464AD2D2AE214EE00413486 /* Inicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inicio.swift; sourceTree = "<group>"; };
+		3464AD2F2AE221DF00413486 /* Medicos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicos.swift; sourceTree = "<group>"; };
+		3464AD342AE228D000413486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3464AD362AE3627700413486 /* Perfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil.swift; sourceTree = "<group>"; };
+		3464AD382AE3769100413486 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3464ACF72AE0BB6000413486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3464AD072AE0BB6200413486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3464AD112AE0BB6200413486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3464ACF12AE0BB6000413486 = {
+			isa = PBXGroup;
+			children = (
+				3464ACFC2AE0BB6000413486 /* TuMundoMedico-Swift */,
+				3464AD0D2AE0BB6200413486 /* TuMundoMedico-SwiftTests */,
+				3464AD172AE0BB6200413486 /* TuMundoMedico-SwiftUITests */,
+				3464ACFB2AE0BB6000413486 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3464ACFB2AE0BB6000413486 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3464ACFA2AE0BB6000413486 /* TuMundoMedico-Swift.app */,
+				3464AD0A2AE0BB6200413486 /* TuMundoMedico-SwiftTests.xctest */,
+				3464AD142AE0BB6200413486 /* TuMundoMedico-SwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3464ACFC2AE0BB6000413486 /* TuMundoMedico-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				3464AD352AE228D000413486 /* Launch Screen.storyboard */,
+				3464ACFF2AE0BB6000413486 /* ContentView.swift */,
+				3464AD292AE1FC0600413486 /* recuContraVerificar.swift */,
+				3464AD2B2AE20DE000413486 /* recuContra.swift */,
+				3464AD272AE0D1C100413486 /* registrarUsuario.swift */,
+				3464AD2D2AE214EE00413486 /* Inicio.swift */,
+				3464AD2F2AE221DF00413486 /* Medicos.swift */,
+				3464AD362AE3627700413486 /* Perfil.swift */,
+				3464AD382AE3769100413486 /* SideMenu.swift */,
+				3464ACFD2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift */,
+				3464AD012AE0BB6200413486 /* Assets.xcassets */,
+				3464AD032AE0BB6200413486 /* Preview Content */,
+			);
+			path = "TuMundoMedico-Swift";
+			sourceTree = "<group>";
+		};
+		3464AD032AE0BB6200413486 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3464AD042AE0BB6200413486 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3464AD0D2AE0BB6200413486 /* TuMundoMedico-SwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				3464AD0E2AE0BB6200413486 /* TuMundoMedico_SwiftTests.swift */,
+			);
+			path = "TuMundoMedico-SwiftTests";
+			sourceTree = "<group>";
+		};
+		3464AD172AE0BB6200413486 /* TuMundoMedico-SwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3464AD182AE0BB6200413486 /* TuMundoMedico_SwiftUITests.swift */,
+				3464AD1A2AE0BB6200413486 /* TuMundoMedico_SwiftUITestsLaunchTests.swift */,
+			);
+			path = "TuMundoMedico-SwiftUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3464ACF92AE0BB6000413486 /* TuMundoMedico-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3464AD1E2AE0BB6200413486 /* Build configuration list for PBXNativeTarget "TuMundoMedico-Swift" */;
+			buildPhases = (
+				3464ACF62AE0BB6000413486 /* Sources */,
+				3464ACF72AE0BB6000413486 /* Frameworks */,
+				3464ACF82AE0BB6000413486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TuMundoMedico-Swift";
+			productName = "TuMundoMedico-Swift";
+			productReference = 3464ACFA2AE0BB6000413486 /* TuMundoMedico-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3464AD092AE0BB6200413486 /* TuMundoMedico-SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3464AD212AE0BB6200413486 /* Build configuration list for PBXNativeTarget "TuMundoMedico-SwiftTests" */;
+			buildPhases = (
+				3464AD062AE0BB6200413486 /* Sources */,
+				3464AD072AE0BB6200413486 /* Frameworks */,
+				3464AD082AE0BB6200413486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3464AD0C2AE0BB6200413486 /* PBXTargetDependency */,
+			);
+			name = "TuMundoMedico-SwiftTests";
+			productName = "TuMundoMedico-SwiftTests";
+			productReference = 3464AD0A2AE0BB6200413486 /* TuMundoMedico-SwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3464AD132AE0BB6200413486 /* TuMundoMedico-SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3464AD242AE0BB6200413486 /* Build configuration list for PBXNativeTarget "TuMundoMedico-SwiftUITests" */;
+			buildPhases = (
+				3464AD102AE0BB6200413486 /* Sources */,
+				3464AD112AE0BB6200413486 /* Frameworks */,
+				3464AD122AE0BB6200413486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3464AD162AE0BB6200413486 /* PBXTargetDependency */,
+			);
+			name = "TuMundoMedico-SwiftUITests";
+			productName = "TuMundoMedico-SwiftUITests";
+			productReference = 3464AD142AE0BB6200413486 /* TuMundoMedico-SwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3464ACF22AE0BB6000413486 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3464ACF92AE0BB6000413486 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					3464AD092AE0BB6200413486 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 3464ACF92AE0BB6000413486;
+					};
+					3464AD132AE0BB6200413486 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 3464ACF92AE0BB6000413486;
+					};
+				};
+			};
+			buildConfigurationList = 3464ACF52AE0BB6000413486 /* Build configuration list for PBXProject "TuMundoMedico-Swift" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3464ACF12AE0BB6000413486;
+			productRefGroup = 3464ACFB2AE0BB6000413486 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3464ACF92AE0BB6000413486 /* TuMundoMedico-Swift */,
+				3464AD092AE0BB6200413486 /* TuMundoMedico-SwiftTests */,
+				3464AD132AE0BB6200413486 /* TuMundoMedico-SwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3464ACF82AE0BB6000413486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3464AD332AE228D000413486 /* Launch Screen.storyboard in Resources */,
+				3464AD052AE0BB6200413486 /* Preview Assets.xcassets in Resources */,
+				3464AD022AE0BB6200413486 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3464AD082AE0BB6200413486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3464AD122AE0BB6200413486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3464ACF62AE0BB6000413486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3464AD002AE0BB6000413486 /* ContentView.swift in Sources */,
+				3464AD372AE3627700413486 /* Perfil.swift in Sources */,
+				3464AD2A2AE1FC0600413486 /* recuContraVerificar.swift in Sources */,
+				3464AD392AE3769100413486 /* SideMenu.swift in Sources */,
+				3464AD2E2AE214EE00413486 /* Inicio.swift in Sources */,
+				3464AD302AE221DF00413486 /* Medicos.swift in Sources */,
+				3464AD2C2AE20DE000413486 /* recuContra.swift in Sources */,
+				3464AD282AE0D1C100413486 /* registrarUsuario.swift in Sources */,
+				3464ACFE2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3464AD062AE0BB6200413486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3464AD0F2AE0BB6200413486 /* TuMundoMedico_SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3464AD102AE0BB6200413486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3464AD1B2AE0BB6200413486 /* TuMundoMedico_SwiftUITestsLaunchTests.swift in Sources */,
+				3464AD192AE0BB6200413486 /* TuMundoMedico_SwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3464AD0C2AE0BB6200413486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3464ACF92AE0BB6000413486 /* TuMundoMedico-Swift */;
+			targetProxy = 3464AD0B2AE0BB6200413486 /* PBXContainerItemProxy */;
+		};
+		3464AD162AE0BB6200413486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3464ACF92AE0BB6000413486 /* TuMundoMedico-Swift */;
+			targetProxy = 3464AD152AE0BB6200413486 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3464AD352AE228D000413486 /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3464AD342AE228D000413486 /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3464AD1C2AE0BB6200413486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3464AD1D2AE0BB6200413486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3464AD1F2AE0BB6200413486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TuMundoMedico-Swift/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "julio-dev.TuMundoMedico-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3464AD202AE0BB6200413486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TuMundoMedico-Swift/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "julio-dev.TuMundoMedico-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3464AD222AE0BB6200413486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "julio-dev.TuMundoMedico-SwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuMundoMedico-Swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuMundoMedico-Swift";
+			};
+			name = Debug;
+		};
+		3464AD232AE0BB6200413486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "julio-dev.TuMundoMedico-SwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuMundoMedico-Swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuMundoMedico-Swift";
+			};
+			name = Release;
+		};
+		3464AD252AE0BB6200413486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "julio-dev.TuMundoMedico-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "TuMundoMedico-Swift";
+			};
+			name = Debug;
+		};
+		3464AD262AE0BB6200413486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "julio-dev.TuMundoMedico-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "TuMundoMedico-Swift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3464ACF52AE0BB6000413486 /* Build configuration list for PBXProject "TuMundoMedico-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3464AD1C2AE0BB6200413486 /* Debug */,
+				3464AD1D2AE0BB6200413486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3464AD1E2AE0BB6200413486 /* Build configuration list for PBXNativeTarget "TuMundoMedico-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3464AD1F2AE0BB6200413486 /* Debug */,
+				3464AD202AE0BB6200413486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3464AD212AE0BB6200413486 /* Build configuration list for PBXNativeTarget "TuMundoMedico-SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3464AD222AE0BB6200413486 /* Debug */,
+				3464AD232AE0BB6200413486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3464AD242AE0BB6200413486 /* Build configuration list for PBXNativeTarget "TuMundoMedico-SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3464AD252AE0BB6200413486 /* Debug */,
+				3464AD262AE0BB6200413486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3464ACF22AE0BB6000413486 /* Project object */;
+}
