@@ -6,9 +6,24 @@
 //
 import Foundation
 import SwiftUI
+// Importando las librerias para Firebase
+import FirebaseCore
+
+//Clase de inicializacion
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
+}
 
 
 struct ContentView: View {
+    
+    // register app delegate for Firebase setup
+     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @State var user:String = "";
     @State var password:String = "";
     
