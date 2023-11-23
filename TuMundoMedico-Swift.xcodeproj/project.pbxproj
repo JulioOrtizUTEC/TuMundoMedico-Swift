@@ -22,7 +22,7 @@
 		3464AD332AE228D000413486 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3464AD352AE228D000413486 /* Launch Screen.storyboard */; };
 		3464AD372AE3627700413486 /* Perfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD362AE3627700413486 /* Perfil.swift */; };
 		3464AD392AE3769100413486 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464AD382AE3769100413486 /* SideMenu.swift */; };
-		3473E5022B0D4D92002E18D4 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3473E5012B0D4D92002E18D4 /* GoogleService-Info-2.plist */; };
+		3473E5022B0D4D92002E18D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3473E5012B0D4D92002E18D4 /* GoogleService-Info.plist */; };
 		3473E5052B0D4DED002E18D4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3473E5042B0D4DED002E18D4 /* FirebaseAnalytics */; };
 		3473E5072B0D4DED002E18D4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3473E5062B0D4DED002E18D4 /* FirebaseAuth */; };
 		3473E5092B0D4DED002E18D4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3473E5082B0D4DED002E18D4 /* FirebaseDatabase */; };
@@ -67,7 +67,7 @@
 		3464AD342AE228D000413486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3464AD362AE3627700413486 /* Perfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil.swift; sourceTree = "<group>"; };
 		3464AD382AE3769100413486 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
-		3473E5012B0D4D92002E18D4 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info-2.plist"; path = "../../../../Downloads/GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		3473E5012B0D4D92002E18D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		3464ACFC2AE0BB6000413486 /* TuMundoMedico-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				3473E5012B0D4D92002E18D4 /* GoogleService-Info-2.plist */,
+				3473E5012B0D4D92002E18D4 /* GoogleService-Info.plist */,
 				3464AD352AE228D000413486 /* Launch Screen.storyboard */,
 				3464ACFF2AE0BB6000413486 /* ContentView.swift */,
 				3464AD292AE1FC0600413486 /* recuContraVerificar.swift */,
@@ -283,7 +283,7 @@
 			files = (
 				3464AD332AE228D000413486 /* Launch Screen.storyboard in Resources */,
 				3464AD052AE0BB6200413486 /* Preview Assets.xcassets in Resources */,
-				3473E5022B0D4D92002E18D4 /* GoogleService-Info-2.plist in Resources */,
+				3473E5022B0D4D92002E18D4 /* GoogleService-Info.plist in Resources */,
 				3464AD022AE0BB6200413486 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
