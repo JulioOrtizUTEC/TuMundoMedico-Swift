@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
 
 
 struct registrarUsuario: View {
@@ -92,9 +93,6 @@ struct registrarUsuario: View {
                     SecureField("Ingrese su Contraseña",text: $password)
                 }
                 .frame(width: 268, height: 35)
-                .keyboardType(.emailAddress)
-                .labelStyle(DefaultLabelStyle())
-                .disableAutocorrection(true)
                 .padding(8)
                 .font(.headline)
                 .background(Color(red: 0.92, green: 0.92, blue: 0.92))
@@ -110,12 +108,9 @@ struct registrarUsuario: View {
                         .frame(width: 20, height: 25)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 5)
-                    SecureField("Ingrese su Contraseña",text: $password)
+                    SecureField("Confirme su Contraseña",text: $confPassword)
                 }
                 .frame(width: 268, height: 35)
-                .keyboardType(.emailAddress)
-                .labelStyle(DefaultLabelStyle())
-                .disableAutocorrection(true)
                 .padding(8)
                 .font(.headline)
                 .background(Color(red: 0.92, green: 0.92, blue: 0.92))
@@ -127,6 +122,24 @@ struct registrarUsuario: View {
                     .frame(height: 60)
                 //Boton registrarte
                 Button("Registrate"){
+                    
+                    //Llamar Auth para invocar la funcion de crear el usuario
+                    if(confPassword == password){
+                        Auth.auth().createUser(withEmail: user, password: password){ authResult, error in
+                            
+                            if let error = error {
+                                print(error)
+                                return
+                            }
+                            
+                            if let authResult = authResult{
+                                print(authResult)
+                            }
+                            
+                        }
+                    }else{
+                        print("Las contraseñas son distintas, verifique que esten correctas")
+                    }
                     
                 }
                     .padding(.top, 15)
@@ -144,6 +157,12 @@ struct registrarUsuario: View {
             }
             .padding()
         }
+    }
+}
+
+struct registrarUsuario_Previews: PreviewProvider {
+    static var previews: some View {
+        registrarUsuario()
     }
 }
 
