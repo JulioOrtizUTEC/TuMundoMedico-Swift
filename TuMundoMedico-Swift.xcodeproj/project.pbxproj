@@ -29,6 +29,9 @@
 		3473E50B2B0D4DED002E18D4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3473E50A2B0D4DED002E18D4 /* FirebaseFirestore */; };
 		3473E50D2B0D4DED002E18D4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3473E50C2B0D4DED002E18D4 /* FirebaseMessaging */; };
 		3473E50F2B0D4DED002E18D4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3473E50E2B0D4DED002E18D4 /* FirebaseStorage */; };
+		8C7EB8AA2B1EE48B001DF535 /* repoMedicos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EB8A92B1EE48B001DF535 /* repoMedicos.swift */; };
+		8C7EB8AE2B1EE5D4001DF535 /* ModeloMedicos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EB8AD2B1EE5D4001DF535 /* ModeloMedicos.swift */; };
+		8CCB29452B201694000A92AF /* DataSourceMedicos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB29442B201694000A92AF /* DataSourceMedicos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		3464AD362AE3627700413486 /* Perfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Perfil.swift; sourceTree = "<group>"; };
 		3464AD382AE3769100413486 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		3473E5012B0D4D92002E18D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8C7EB8A92B1EE48B001DF535 /* repoMedicos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repoMedicos.swift; sourceTree = "<group>"; };
+		8C7EB8AD2B1EE5D4001DF535 /* ModeloMedicos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloMedicos.swift; sourceTree = "<group>"; };
+		8CCB29442B201694000A92AF /* DataSourceMedicos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceMedicos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,9 @@
 				3464ACFD2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift */,
 				3464AD012AE0BB6200413486 /* Assets.xcassets */,
 				3464AD032AE0BB6200413486 /* Preview Content */,
+				8C7EB8A92B1EE48B001DF535 /* repoMedicos.swift */,
+				8C7EB8AD2B1EE5D4001DF535 /* ModeloMedicos.swift */,
+				8CCB29442B201694000A92AF /* DataSourceMedicos.swift */,
 			);
 			path = "TuMundoMedico-Swift";
 			sourceTree = "<group>";
@@ -310,11 +319,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3464AD002AE0BB6000413486 /* ContentView.swift in Sources */,
+				8C7EB8AE2B1EE5D4001DF535 /* ModeloMedicos.swift in Sources */,
 				3464AD372AE3627700413486 /* Perfil.swift in Sources */,
 				3464AD2A2AE1FC0600413486 /* recuContraVerificar.swift in Sources */,
 				3464AD392AE3769100413486 /* SideMenu.swift in Sources */,
+				8CCB29452B201694000A92AF /* DataSourceMedicos.swift in Sources */,
 				3464AD2E2AE214EE00413486 /* Inicio.swift in Sources */,
 				3464AD302AE221DF00413486 /* Medicos.swift in Sources */,
+				8C7EB8AA2B1EE48B001DF535 /* repoMedicos.swift in Sources */,
 				3464AD2C2AE20DE000413486 /* recuContra.swift in Sources */,
 				3464AD282AE0D1C100413486 /* registrarUsuario.swift in Sources */,
 				3464ACFE2AE0BB6000413486 /* TuMundoMedico_SwiftApp.swift in Sources */,
@@ -495,6 +507,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +517,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -524,6 +537,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,7 +547,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
