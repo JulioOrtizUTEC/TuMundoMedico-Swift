@@ -7,12 +7,139 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
+
+struct EspecialidadData: Codable {
+    let nombre: String
+    let imagen: String
+}
+
+struct listaEspecialidades: Codable, Identifiable {
+    @DocumentID var id: String?
+    //var id = UUID() // Add an id property of type UUID
+    let nombre: String
+    let imagen: String
+    let data: EspecialidadData //[String: Any]
+    
+    init(id: String, data: EspecialidadData) {
+        self.id = id
+        self.nombre = data.nombre
+        self.imagen = data.imagen
+        self.data = data
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let idString = try container.decode(String.self, forKey: .id)
+        //id = UUID(uuidString: idString) ?? UUID()
+        nombre = try container.decode(String.self, forKey: .nombre)
+        imagen = try container.decode(String.self, forKey: .imagen)
+        data = try container.decode(EspecialidadData.self, forKey: .data)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(nombre, forKey: .nombre)
+        try container.encode(imagen, forKey: .imagen)
+        try container.encode(data, forKey: .data)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id, nombre, imagen, data
+    }
+    
+    static func allSpecialties(completion: @escaping ([listaEspecialidades]?, Error?) -> Void) {
+        DataSourceEspecialidades().getEspecialidades { specialties, error in
+            if let error = error {
+                completion(nil, error)
+            } else {
+                completion(specialties, nil)
+            }
+        }
+    }
+}
+
+struct SpecialtyCardView: View {
+    let especialidad: listaEspecialidades
+    
+    var body: some View {
+        ZStack {
+            Color(hex: 0xFFEBEBEB)
+                .shadow(radius: 4)
+            
+            
+
+            HStack {
+                if let data = especialidad.data {
+                    GroupBox {
+                        AsyncImage(url: URL(string: especialidad.imagen)) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 144, height: 94)
+                                    .clipped()
+                                    .background(Color.white)
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 144, height: 94)
+                                    .clipped()
+                                    .background(Color.white)
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
+                        
+                        Text(especialidad.nombre)
+                            .font(Font.custom("Inter", size: 11).weight(.bold))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.black)
+                            .frame(width: 120, height: 24, alignment: .top)
+                    }
+                    .foregroundColor(.clear)
+                    .frame(width: 144, height: 131)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                    
+                    Spacer().frame(width: 25)
+            }
+             
+            }
+            .padding()
+        
+        }
+        .padding(.vertical, 20)
+    }
+}
 
 
 struct Inicio: View {
     
     @State var showMenu:Bool = false;
     @State var search:String = "";
+    @State var filteredSpecialties: [listaEspecialidades] = []
+    @State var allSpecialties: [listaEspecialidades] = []
+    
+    func getSpecialties() {
+        DataSourceEspecialidades().getEspecialidades { specialties, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            guard let specialties = specialties else {
+                print("Error getting specialties")
+                return
+            }
+            filteredSpecialties = specialties
+        }
+    }
     
     var body: some View {
         NavigationView{
@@ -46,6 +173,11 @@ struct Inicio: View {
                                 )
                                 .foregroundColor(Color(red: 0.01, green: 0.01, blue: 0.26))
                                 .frame(width: 280, height: 27, alignment: .topTrailing)
+                            
+                            // Get all Specialties when the view appears
+                                .onAppear {
+                                    getSpecialties()
+                                }
                         }
                     }
                     Spacer()
@@ -59,6 +191,10 @@ struct Inicio: View {
                             .padding(.horizontal, 5)
                         
                         TextField("Busca un médico o una especialidad",text: $search)
+                        //Muestra todos las especialidades al inicio de la carga
+                            .onChange(of: search) { _ in
+                                searchSpecialties()
+                            }
                     }
                     .frame(width: 290, height: 30)
                     .keyboardType(.emailAddress)
@@ -74,163 +210,31 @@ struct Inicio: View {
                     .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                     Spacer()
                         .frame(height: 40)
-                    //Linea 1 de especialidades
-                    HStack{
-                        Section {
-                            GroupBox() {
-                                Image("MedicinaGeneral")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 144, height: 94)
-                                    .clipped()
-                                    .background(.white)
-                                Text("Medicina General")
-                                    .font(
-                                        Font.custom("Inter", size: 11)
-                                            .weight(.bold)
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
+                    
+                    ZStack {
+                        Color(hex: 0xFFF2F2F2)
+                            .edgesIgnoringSafeArea(.all)
+                        VStack {
+                            // Doctor list
+                            List {
+                                // Header padding
+                                Spacer().frame(height: 5)
                                 
-                                    .frame(width: 120, height: 24, alignment: .top)
+                                ForEach(filteredSpecialties) { specialty in
+                                    SpecialtyCardView(especialidad: specialty)
+                                }
                             }
-                            .foregroundColor(.clear)
-                            .frame(width: 144, height: 131)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                            Spacer()
-                                .frame(width: 25)
-                            GroupBox() {
-                                Image("Urologia")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 144, height: 94)
-                                    .clipped()
-                                    .background(.white)
-                                Text("Urologia")
-                                    .font(
-                                        Font.custom("Inter", size: 11)
-                                            .weight(.bold)
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                
-                                    .frame(width: 120, height: 24, alignment: .top)
-                            }
-                            .foregroundColor(.clear)
-                            .frame(width: 144, height: 131)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                            .padding(.top, 24)
                         }
-                    }.padding()
-                    //Linea 2 de especialidades
-                    HStack{
-                        Section {
-                            GroupBox() {
-                                Image("Cirujanos")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 144, height: 94)
-                                    .clipped()
-                                    .background(.white)
-                                Text("Cirujanos")
-                                    .font(
-                                        Font.custom("Inter", size: 11)
-                                            .weight(.bold)
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                
-                                    .frame(width: 120, height: 24, alignment: .top)
-                            }
-                            .foregroundColor(.clear)
-                            .frame(width: 144, height: 131)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                            Spacer()
-                                .frame(width: 25)
-                            GroupBox() {
-                                Image("Cardiologia")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 144, height: 94)
-                                    .clipped()
-                                    .background(.white)
-                                Text("Cardiologia")
-                                    .font(
-                                        Font.custom("Inter", size: 11)
-                                            .weight(.bold)
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                
-                                    .frame(width: 120, height: 24, alignment: .top)
-                            }
-                            .foregroundColor(.clear)
-                            .frame(width: 144, height: 131)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                        }
-                    }.padding()
-                    //Linea 3 de especialidades
-                    HStack{
-                        Section {
-                            GroupBox() {
-                                Image("CirujiaPlastica")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 144, height: 94)
-                                    .clipped()
-                                    .background(.white)
-                                Text("Cirujia Plastica")
-                                    .font(
-                                        Font.custom("Inter", size: 11)
-                                            .weight(.bold)
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                
-                                    .frame(width: 120, height: 24, alignment: .top)
-                            }
-                            .foregroundColor(.clear)
-                            .frame(width: 144, height: 131)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                            Spacer()
-                                .frame(width: 25)
-                            GroupBox() {
-                                Image("Dermatologo")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 144, height: 94)
-                                    .clipped()
-                                    .background(.white)
-                                Text("Dermatologia")
-                                    .font(
-                                        Font.custom("Inter", size: 11)
-                                            .weight(.bold)
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                
-                                    .frame(width: 120, height: 24, alignment: .top)
-                            }
-                            .foregroundColor(.clear)
-                            .frame(width: 144, height: 131)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                        }
-                    }.padding()
+                        
+                    }
+                   
+                    
+                    
                 }
                 //Menu Code
                 .toolbar{
-                    ToolbarItem(placement: ToolbarItemPlacement.topBarLeading) {
+                    ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                         //Button Menu
                         Button{
                             self.showMenu.toggle()
@@ -245,6 +249,27 @@ struct Inicio: View {
                                     .foregroundColor(.black)
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func searchSpecialties() {
+        listaEspecialidades.allSpecialties { specialties, error in
+            if let error = error {
+                print("Error fetching specialties: \(error.localizedDescription)")
+            } else if let specialties = specialties {
+                // Use the filteredDoctors array based on the search criteria
+                let lowercaseSearchText = search.lowercased()
+                if lowercaseSearchText.isEmpty {
+                    // If search text is empty, display all doctors
+                    filteredSpecialties = specialties
+                } else {
+                    // Filter doctors based on the search text
+                    filteredSpecialties = specialties.filter { specialty in
+                        let especialidadString = String(specialty.nombre)
+                        return specialty.nombre.lowercased().contains(lowercaseSearchText)
                     }
                 }
             }
