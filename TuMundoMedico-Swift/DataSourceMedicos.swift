@@ -29,10 +29,12 @@ final class DataSourceMedicos{
         var doctors: [listaMedicos] = []
         for document in documents {
             let data = document.data()
+            print("Document Data: \(data)")
+            
             let doctorData = DoctorData(
                 nombres: data["nombres_medico"] as? String ?? "",
                 apellidos: data["apellidos_medico"] as? String ?? "",
-                especialidad: data["id_especialidad"] as? String ?? "",
+                especialidad: data["nombre_especialidad"] as? String ?? "",
                 direccion: data["direccion_medico"] as? String ?? "",
                 tel: data["telefono_medico"] as? String ?? "",
                 precio: data["precio_consulta"] as? Double ?? 0.0

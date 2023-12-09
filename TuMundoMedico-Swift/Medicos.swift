@@ -14,7 +14,7 @@ extension Color {
         let red = Double((hex & 0xFF0000) >> 16) / 255.0
         let green = Double((hex & 0x00FF00) >> 8) / 255.0
         let blue = Double(hex & 0x0000FF) / 255.0
-
+        
         self.init(red: red, green: green, blue: blue)
     }
 }
@@ -24,7 +24,7 @@ extension UIColor {
         let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
         let green = CGFloat((hex & 0x00FF00) >> 8) / 255.0
         let blue = CGFloat(hex & 0x0000FF) / 255.0
-
+        
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
@@ -102,11 +102,11 @@ struct listaMedicos: Codable, Identifiable {
 
 struct DoctorCardView: View {
     let doctor: listaMedicos
-    //@State private var filteredDoctors: [listaMedicos] = []
     
     var body: some View {
         ZStack {
-            Color(0xFFEBEBEB as! CGColor)
+            //Color(0xFFEBEBEB as! CGColor)
+            Color(hex: 0xFFEBEBEB)
                 .shadow(radius: 4)
             HStack {
                 
@@ -123,19 +123,19 @@ struct DoctorCardView: View {
                     Text("Dr. \(doctor.nombres) \(doctor.apellidos)")
                         .font(.system(size: 15))
                         .foregroundColor(Color(UIColor(hex: 0xFF616161)))
-                        //.foregroundColor(Color(0xFF616161 as! CGColor))
-                    Text(doctor.especialidad)
+                    //.foregroundColor(Color(0xFF616161 as! CGColor))
+                    Text(String(doctor.especialidad))
                         .font(.system(size: 11))
                         .foregroundColor(Color(UIColor(hex: 0xFF040243)))
-                        //.foregroundColor(Color(0xFF040243 as! CGColor))
+                    //.foregroundColor(Color(0xFF040243 as! CGColor))
                     Text(doctor.direccion)
                         .font(.system(size: 11))
                         .foregroundColor(Color(UIColor(hex: 0xFF616161)))
-                        //.foregroundColor(Color(0xFF616161 as! CGColor))
+                    //.foregroundColor(Color(0xFF616161 as! CGColor))
                     Text("Tel.: \(doctor.tel)")
                         .font(.system(size: 11))
                         .foregroundColor(Color(UIColor(hex: 0xFF616161)))
-                        //.foregroundColor(Color(0xFF616161 as! CGColor))
+                    //.foregroundColor(Color(0xFF616161 as! CGColor))
                 }
                 .padding(.top, 5)
                 .padding(.leading, 10)
@@ -148,7 +148,7 @@ struct DoctorCardView: View {
                     .font(.system(size: 12))
                     .fontWeight(.bold)
                     .foregroundColor(Color(UIColor(hex: 0xFF0CAE90)))
-                    //.foregroundColor(Color(0xFF0CAE90 as! CGColor))
+                //.foregroundColor(Color(0xFF0CAE90 as! CGColor))
                     .padding(.trailing, 20)
             }
         }
@@ -157,134 +157,134 @@ struct DoctorCardView: View {
 }
 
 
-    struct Medicos: View {
-        @State var showMenu:Bool = false;
-        @State var searchText:String = "";
-        @State var filteredDoctors: [listaMedicos] = []
-        
-        func getDoctors() {
-            DataSourceMedicos().getDoctors { doctors, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                guard let doctors = doctors else {
-                    print("Error getting doctors")
-                    return
-                }
-                filteredDoctors = doctors
+struct Medicos: View {
+    @State var showMenu:Bool = false;
+    @State var searchText:String = "";
+    @State var filteredDoctors: [listaMedicos] = []
+    @State var allDoctors: [listaMedicos] = []
+    
+    func getDoctors() {
+        DataSourceMedicos().getDoctors { doctors, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
             }
+            guard let doctors = doctors else {
+                print("Error getting doctors")
+                return
+            }
+            filteredDoctors = doctors
         }
-        
-        var body: some View {
-            NavigationView{
-                ZStack{
-                    //Se coloca el color al fondo de pantalla
-                    Color(.white)
-                    //se le coloca esta propiedad para rellenar toda la pantalla
-                        .ignoresSafeArea()
+    }
+    
+    var body: some View {
+        NavigationView{
+            ZStack{
+                //Se coloca el color al fondo de pantalla
+                Color(.white)
+                //se le coloca esta propiedad para rellenar toda la pantalla
+                    .ignoresSafeArea()
+                //Menu Code
+                //Embend the menu
+                GeometryReader{ _ in
+                    HStack{
+                        SideMenu()
+                            .offset(x: showMenu ? 0 : -UIScreen.main.bounds.width)
+                            .animation(.easeInOut)
+                            .padding(.leading, 50)
+                    }
+                    
+                }
+                .zIndex(1)
+                //Alineamiento vertical de los elementos
+                VStack {
+                    HStack{
+                        Spacer()
+                            .frame(width:40)
+                        VStack{
+                            //Mensaje de bienvenido - Titulo
+                            Text("Médicos")
+                                .font(
+                                    Font.custom("Inter", size: 30)
+                                        .weight(.bold)
+                                )
+                                .foregroundColor(Color(red: 0.01, green: 0.01, blue: 0.26))
+                                .frame(width: 280, height: 27, alignment: .topTrailing)
+                            
+                            // Get all doctors when the view appears
+                                .onAppear {
+                                    getDoctors()
+                                }
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 20)
+                    //Usuario
+                    HStack{
+                        Image("Buscar")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 5)
+                        
+                        TextField("Busca un médico o una especialidad",text: $searchText)
+                        //Muestra todos los medicos al inicio de la carga
+                            .onChange(of: searchText) { _ in
+                                searchDoctors()
+                            }
+                    }
+                    .frame(width: 290, height: 30)
+                    .keyboardType(.emailAddress)
+                    .labelStyle(DefaultLabelStyle())
+                    .disableAutocorrection(true)
+                    .padding(8)
+                    .font(Font.custom("Inter", size: 14)
+                        .weight(.bold))
+                    .background(Color(red: 0.92, green: 0.92, blue: 0.92))
+                    .cornerRadius(15)
+                    .padding(.horizontal,68)
+                    .padding(.top,40)
+                    .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                    Spacer()
+                        .frame(height: 15)
+                    
                     //Menu Code
-                    //Embend the menu
-                    GeometryReader{ _ in
-                        HStack{
-                            SideMenu()
-                                .offset(x: showMenu ? 0 : -UIScreen.main.bounds.width)
-                                .animation(.easeInOut)
-                                .padding(.leading, 50)
+                    ZStack {
+                        Color(hex: 0xFFF2F2F2)
+                            .edgesIgnoringSafeArea(.all)
+                        VStack {
+                            // Doctor list
+                            List {
+                                // Header padding
+                                Spacer().frame(height: 5)
+                                
+                                ForEach(filteredDoctors) { doctor in
+                                    DoctorCardView(doctor: doctor)
+                                }
+                            }
+                            .padding(.top, 24)
                         }
                         
                     }
-                    .zIndex(1)
-                    //Alineamiento vertical de los elementos
-                    VStack {
-                        HStack{
-                            Spacer()
-                                .frame(width:40)
-                            VStack{
-                                //Mensaje de bienvenido - Titulo
-                                Text("Médicos")
-                                    .font(
-                                        Font.custom("Inter", size: 30)
-                                            .weight(.bold)
-                                    )
-                                    .foregroundColor(Color(red: 0.01, green: 0.01, blue: 0.26))
-                                    .frame(width: 280, height: 27, alignment: .topTrailing)
-                            }
-                        }
-                        Spacer()
-                            .frame(height: 20)
-                        //Usuario
-                        HStack{
-                            Image("Buscar")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.gray)
-                                .padding(.horizontal, 5)
-                            
-                            TextField("Busca un médico o una especialidad",text: $searchText)
-                                .onChange(of: searchText) { _ in
-                                            searchDoctors()
-                                        }
-                        }
-                        .frame(width: 290, height: 30)
-                        .keyboardType(.emailAddress)
-                        .labelStyle(DefaultLabelStyle())
-                        .disableAutocorrection(true)
-                        .padding(8)
-                        .font(Font.custom("Inter", size: 14)
-                            .weight(.bold))
-                        .background(Color(red: 0.92, green: 0.92, blue: 0.92))
-                        .cornerRadius(15)
-                        .padding(.horizontal,68)
-                        .padding(.top,40)
-                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                        Spacer()
-                            .frame(height: 40)
-                        //Carta 1
-                        
-                        //Carta 2
-                        
-                        //Carta 3
-                        
-                        //Carta 4
-                        
-                        //Carta 5
-                        
-                        //Menu Code
-                        ZStack {
-                            Color(hex: 0xFFF2F2F2)
-                                .edgesIgnoringSafeArea(.all)
-                            VStack {
-                                // Doctor list
-                                
-                                List(filteredDoctors) { doctor in
-                                    DoctorCardView(doctor: doctor)
-                                }
-                                .padding(.top, 24)
-                            }
-                            
-                        }
-                        
-                        
-                        
-                        .toolbar {
-                            ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                                //Button Menu
-                                Button{
-                                    self.showMenu.toggle()
-                                }label:{
-                                    if showMenu == true {
-                                        Image(systemName:"chevron.left")
-                                            .font(.title)
-                                            .foregroundColor(.white)
-                                    }else{
-                                        Image(systemName:"text.justify")
-                                            .font(.title)
-                                            .foregroundColor(.black)
-                                    }
+                    
+                    
+                    
+                    .toolbar {
+                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                            //Button Menu
+                            Button{
+                                self.showMenu.toggle()
+                            }label:{
+                                if showMenu == true {
+                                    Image(systemName:"chevron.left")
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                }else{
+                                    Image(systemName:"text.justify")
+                                        .font(.title)
+                                        .foregroundColor(.black)
                                 }
                             }
-                            
                         }
                         
                     }
@@ -293,28 +293,36 @@ struct DoctorCardView: View {
                 
             }
             
-            
         }
         
         
-        private func searchDoctors() {
-            listaMedicos.allDoctors { doctors, error in
-                if let error = error {
-                    print("Error fetching doctors: \(error.localizedDescription)")
-                } else if let doctors = doctors {
-                    // Use the filteredDoctors array based on the search criteria
-                    let lowercaseSearchText = searchText.lowercased()
+    }
+    
+    private func searchDoctors() {
+        listaMedicos.allDoctors { doctors, error in
+            if let error = error {
+                print("Error fetching doctors: \(error.localizedDescription)")
+            } else if let doctors = doctors {
+                // Use the filteredDoctors array based on the search criteria
+                let lowercaseSearchText = searchText.lowercased()
+                if lowercaseSearchText.isEmpty {
+                    // If search text is empty, display all doctors
+                    filteredDoctors = doctors
+                } else {
+                    // Filter doctors based on the search text
                     filteredDoctors = doctors.filter { doctor in
-                        doctor.nombres.lowercased().contains(lowercaseSearchText) ||
-                            doctor.apellidos.lowercased().contains(lowercaseSearchText) ||
-                            doctor.especialidad.lowercased().contains(lowercaseSearchText) ||
-                            doctor.direccion.lowercased().contains(lowercaseSearchText) ||
-                            doctor.tel.lowercased().contains(lowercaseSearchText)
+                        let especialidadString = String(doctor.especialidad)
+                        return doctor.nombres.lowercased().contains(lowercaseSearchText) ||
+                        doctor.apellidos.lowercased().contains(lowercaseSearchText) ||
+                        especialidadString.lowercased().contains(lowercaseSearchText) ||
+                        doctor.direccion.lowercased().contains(lowercaseSearchText) ||
+                        doctor.tel.lowercased().contains(lowercaseSearchText)
                     }
                 }
             }
         }
     }
+}
 
 
 struct Medicos_Previews: PreviewProvider{
