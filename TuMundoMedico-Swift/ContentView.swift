@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var user:String = "";
     @State var password:String = "";
     @State var action:Bool = false;
+    @State var fPass:Bool = false;
     @State var isSigned:Bool = false;
     
     var body: some View {
@@ -107,8 +108,11 @@ struct ContentView: View {
                     .padding(.top,21)
                     .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                     //Olvidaste tu contrasenia
+                    NavigationLink(destination: recuContraVerificar(), isActive: $fPass) {
+                    }
+                    .hidden()
                     Button("¿Olvidaste tu contraseña?"){
-                        
+                        self.fPass.toggle();
                     }
                     .foregroundColor(Color(red: 0.05, green: 0.68, blue: 0.56))
                     .padding(.top, 21)
@@ -117,7 +121,7 @@ struct ContentView: View {
                             .weight(.bold)
                     )
                     .padding(.bottom, 15)
-                    NavigationLink(destination: Inicio(), isActive: $isSigned) {
+                    NavigationLink(destination: Inicio().navigationBarBackButtonHidden(true), isActive: $isSigned) {
                         EmptyView()
                     }
                     .hidden()

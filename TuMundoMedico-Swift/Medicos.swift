@@ -191,7 +191,7 @@ struct Medicos: View {
                         SideMenu()
                             .offset(x: showMenu ? 0 : -UIScreen.main.bounds.width)
                             .animation(.easeInOut)
-                            .padding(.leading, 50)
+                            .padding(.leading, 20)
                     }
                     
                 }

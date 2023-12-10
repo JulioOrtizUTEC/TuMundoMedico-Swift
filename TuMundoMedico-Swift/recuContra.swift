@@ -10,8 +10,10 @@ import SwiftUI
 
 
 struct recuContra: View {
+    @State var user:String = "";
     @State var password:String = "";
     @State var confPassword:String = "";
+    @State var inicio:Bool = false;
     
     var body: some View {
         ZStack{
@@ -61,6 +63,27 @@ struct recuContra: View {
                 Spacer()
                     .frame(height: 30)
                 //Seccion de los textfields
+                //Usuario
+                HStack{
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 5)
+                    
+                    TextField("Ingrese su Usuario",text: $user)
+                }
+                .frame(width: 268, height: 35)
+                .keyboardType(.emailAddress)
+                .labelStyle(DefaultLabelStyle())
+                .disableAutocorrection(true)
+                .padding(8)
+                .font(.headline)
+                .background(Color(red: 0.92, green: 0.92, blue: 0.92))
+                .cornerRadius(15)
+                .padding(.horizontal,68)
+                .padding(.top,40)
+                .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
                 //Contrasenia
                 HStack{
                     Image(systemName: "lock.fill")
@@ -104,8 +127,10 @@ struct recuContra: View {
                 Spacer()
                     .frame(height: 30)
                 //Boton iniciar sesión
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true), isActive: $inicio) {
+                }
                 Button("Recuperar Contraseña"){
-                    
+                    self.inicio.toggle()
                 }
                     .padding(.top, 15)
                     .padding(.horizontal, 32)
@@ -126,3 +151,8 @@ struct recuContra: View {
     }
 }
 
+struct recuContra_Previews: PreviewProvider {
+    static var previews: some View {
+        recuContra()
+    }
+}

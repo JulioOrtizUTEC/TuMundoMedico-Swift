@@ -68,10 +68,8 @@ struct SpecialtyCardView: View {
             Color(hex: 0xFFEBEBEB)
                 .shadow(radius: 4)
             
-            
-
             HStack {
-                if let data = especialidad.data {
+                if especialidad.data != nil {
                     GroupBox {
                         AsyncImage(url: URL(string: especialidad.imagen)) { phase in
                             switch phase {

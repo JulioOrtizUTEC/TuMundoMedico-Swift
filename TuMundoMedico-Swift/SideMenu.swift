@@ -55,13 +55,13 @@ struct SideMenu: View {
             .padding(.horizontal)
             .padding(.leading, 60)
             //Opciones
-            NavigationLink(destination: Inicio(), tag: 1, selection: $optionSelected) {
+            NavigationLink(destination: Inicio().navigationBarBackButtonHidden(true), tag: 1, selection: $optionSelected) {
                 EmptyView()
             }
-            NavigationLink(destination: Medicos(), tag: 2, selection: $optionSelected) {
+            NavigationLink(destination: Medicos().navigationBarBackButtonHidden(true), tag: 2, selection: $optionSelected) {
                 EmptyView()
             }
-            NavigationLink(destination: Perfil(), tag: 3, selection: $optionSelected) {
+            NavigationLink(destination: Perfil().navigationBarBackButtonHidden(true), tag: 3, selection: $optionSelected) {
                 EmptyView()
             }
             Spacer()
@@ -83,7 +83,7 @@ struct SideMenu: View {
             Divider()
             VStack{
                 //Boton de cerrar sesion
-                NavigationLink(destination: ContentView(), isActive: $isSignedOff) {
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true), isActive: $isSignedOff) {
                     EmptyView()
                 }
                 Button("Cerrar Sesion"){
@@ -125,9 +125,9 @@ struct SideMenu: View {
     @ViewBuilder
     func TabButton(_ title: String, _ image:String, _ option: Int)->some View{
         
-        NavigationLink(destination: Inicio(), tag: 1, selection: $optionSelected) {}
-        NavigationLink(destination: Medicos(), tag: 2, selection: $optionSelected) {}
-        NavigationLink(destination: Perfil(), tag: 3, selection: $optionSelected) {}
+        NavigationLink(destination: Inicio().navigationBarBackButtonHidden(true), tag: 1, selection: $optionSelected) {}
+        NavigationLink(destination: Medicos().navigationBarBackButtonHidden(true), tag: 2, selection: $optionSelected) {}
+        NavigationLink(destination: Perfil().navigationBarBackButtonHidden(true), tag: 3, selection: $optionSelected) {}
         
         Button{
             self.optionSelected = option
